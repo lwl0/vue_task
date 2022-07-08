@@ -145,9 +145,9 @@ export default {
                         this.tableData = res.data.data;
                         let message = '';
                         if(res.data.cache){
-                            message = '从redis缓存中查询成功' +'用时'+res.data.time+'ms';
+                            message = 'The query from redis cache succeeded and' +'spent time'+res.data.time+'ms';
                         }else{
-                            message = '从mysql中查询成功' +'用时'+res.data.time+'ms';
+                            message = 'The query from Mysql succeeded and' +'spent time'+res.data.time+'ms';
                         }
                         this.$message({
                             message: message,
@@ -171,9 +171,9 @@ export default {
                         this.tableData = res.data.data;
                         let message = '';
                         if(res.data.cache){
-                             message = '从redis缓存中查询成功' +'用时'+res.data.time+'ms';
+                            message = 'The query from redis cache succeeded and' +'spent time'+res.data.time+'ms';
                         }else{
-                             message = '从mysql中查询成功' +'用时'+res.data.time+'ms';
+                            message = 'The query from Mysql succeeded and' +'spent time'+res.data.time+'ms';
                         }
                         this.$message({
                             message: message,
