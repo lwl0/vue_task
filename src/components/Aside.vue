@@ -1,33 +1,64 @@
 <template>
   <div>
     <el-menu style="width: 200px; min-height: calc(100vh - 50px)"
-        default-active="2"
-        class="el-menu-vertical-demo">
-      <el-sub-menu index="1">
-        <template #title>
-          <el-icon><location /></el-icon>
-          <span>导航一</span>
-        </template>
-        <el-menu-item-group>
-          <el-menu-item index="1-1">item one</el-menu-item>
-        </el-menu-item-group>
-      </el-sub-menu>
-      <el-menu-item index="2">
-        <el-icon><icon-menu /></el-icon>
-        <span>导航二</span>
-      </el-menu-item>
-
-      <el-menu-item index="4">
-        <el-icon><setting /></el-icon>
-        <span>导航四</span>
-      </el-menu-item>
+        :default-active="$route.path"
+        class="el-menu-vertical-demo" router  @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+    <el-menu-item  v-for="item in menu" :index="item.path" :key="item.path" @click="clickMenu(item)">
+    <template #title>
+    <i :class="item.icon"></i>
+    <!-- <i class="el-icon-location"></i> -->
+    <span>{{item.label}}</span>
+    </template>
+    </el-menu-item>
     </el-menu>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Aside"
+  name: "Aside",
+  data() {
+    return {
+        isCollapse: false,
+        menu:[
+          {
+            path:'/',
+            name:'Home',
+            label:'系统首页',
+            icon:'el-icon-s-home',
+          },
+          {
+            path:'/search',
+            name:'search',
+            label:'任务3',
+            icon:'el-icon-s-home',
+          },
+          {
+            path:'/chart',
+            name:'chart',
+            label:'任务4',
+            icon:'el-icon-s-home',
+          },           
+        ]
+    }
+  },
+  methods: {
+    handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+    handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      },
+    clickMenu(item){
+      this.$router.push(//页面跳转
+        {
+          name:item.name
+        }
+      ) 
+
+      console.log('执行跳转')  
+    },
+}
 }
 </script>
 

@@ -24,25 +24,90 @@
             sortable>
         </el-table-column>
         <el-table-column
-            prop="username"
-            label="姓名">
+            prop="time"
+            label="time">
         </el-table-column>
         <el-table-column
-            prop="nickName"
-            label="昵称">
+            prop="place"
+            label="place">
+        </el-table-column>        
+        <el-table-column
+            prop="latitude"
+            label="latitude">
         </el-table-column>
         <el-table-column
-            prop="age"
-            label="年龄">
+            prop="longitude"
+            label="longitude">
         </el-table-column>
         <el-table-column
-            prop="sex"
-            label="性别">
+            prop="type"
+            label="type">
         </el-table-column>
         <el-table-column
-            prop="address"
-            label="地址">
+            prop="depth"
+            label="depth">
         </el-table-column>
+        <el-table-column
+            prop="mag"
+            label="mag">
+        </el-table-column>
+        <el-table-column
+            prop="magtype"
+            label="magType">
+        </el-table-column>
+        <el-table-column
+            prop="nst"
+            label="nst">
+        </el-table-column>
+        <el-table-column
+            prop="gap"
+            label="gap">
+        </el-table-column>
+        <el-table-column
+            prop="dmin"
+            label="dmin">
+        </el-table-column>
+        <el-table-column
+            prop="rms"
+            label="rms">
+        </el-table-column>
+        <el-table-column
+            prop="net"
+            label="net">
+        </el-table-column>
+        <el-table-column
+            prop="updated"
+            label="updated">
+        </el-table-column>       
+        <el-table-column
+            prop="horizontalerror"
+            label="horizontalError">
+        </el-table-column>
+        <el-table-column
+            prop="deptherror"
+            label="depthError">
+        </el-table-column>
+        <el-table-column
+            prop="magerror"
+            label="magError">
+        </el-table-column>
+        <el-table-column
+            prop="magnst"
+            label="magNst">
+        </el-table-column>
+        <el-table-column
+            prop="status"
+            label="status">
+        </el-table-column>
+         <el-table-column
+            prop="locationsource"
+            label="locationSource">
+        </el-table-column>       
+        <el-table-column
+            prop="magsource"
+            label="magSource">
+        </el-table-column>
+
 
         <el-table-column fixed="right" label="Operations">
           <template #default="scope"> <!-- //指定模板==>scope-->
@@ -72,25 +137,80 @@
         </el-pagination>
 
         <!--add弹窗-->
-        <el-dialog v-model="dialogVisible" title="新增用户" width="30%">
+        <el-dialog v-model="dialogVisible" title="edit data" width="30%">
           <!--add弹窗的表单-->
           <el-form :model="form" label-width="120px">
-            <el-form-item label="用户名">
-              <el-input v-model="form.username" style="width: 80%" />
+            <el-form-item label="time">
+              <el-input v-model="form.time" style="width: 80%" />
             </el-form-item>
-            <el-form-item label="昵称">
-              <el-input v-model="form.nickName" style="width: 80%" />
+            <el-form-item label="place">
+              <el-input v-model="form.place" style="width: 80%" />
             </el-form-item>
-            <el-form-item label="年龄">
-              <el-input v-model="form.age" style="width: 80%" />
+            <el-form-item label="latitude">
+              <el-input v-model="form.latitude" style="width: 80%" />
             </el-form-item>
-            <el-form-item label="性别">
-              <el-radio v-model="form.sex" label="男" size="large">男</el-radio>
-              <el-radio v-model="form.sex" label="女" size="large">女</el-radio>
-              <el-radio v-model="form.sex" label="未知" size="large">未知</el-radio>
+            <el-form-item label="longitude">
+              <el-input v-model="form.longitude" style="width: 80%" />
             </el-form-item>
-            <el-form-item type="textarea" label="地址">
-              <el-input v-model="form.address" style="width: 80%" />
+            <el-form-item  label="type">
+                <el-select v-model="form.type" placeholder="请选择">
+                    <el-option
+                      v-for="item in options"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="depth">
+              <el-input v-model="form.depth" style="width: 80%" />
+            </el-form-item>
+            <el-form-item label="mag">
+              <el-input v-model="form.mag" style="width: 80%" />
+            </el-form-item>
+            <el-form-item label="magType">
+              <el-input v-model="form.magtype" style="width: 80%" />
+            </el-form-item>
+             <el-form-item label="nst">
+              <el-input v-model="form.nst" style="width: 80%" />
+            </el-form-item>
+             <el-form-item label="gap">
+              <el-input v-model="form.gap" style="width: 80%" />
+            </el-form-item>
+            <el-form-item label="dmin">
+              <el-input v-model="form.dmin" style="width: 80%" />
+            </el-form-item>
+            <el-form-item label="rms">
+              <el-input v-model="form.rms" style="width: 80%" />
+            </el-form-item>
+            <el-form-item label="net">
+              <el-input v-model="form.net" style="width: 80%" />
+            </el-form-item>
+            <el-form-item label="updated">
+              <el-input v-model="form.updated" style="width: 80%" />
+            </el-form-item>
+            <el-form-item label="horizontalError">
+              <el-input v-model="form.horizontalerror" style="width: 80%" />
+            </el-form-item>
+            <el-form-item label="depthError">
+              <el-input v-model="form.deptherror" style="width: 80%" />
+            </el-form-item>   
+             <el-form-item label="magError">
+              <el-input v-model="form.magerror" style="width: 80%" />
+            </el-form-item>  
+            <el-form-item label="magNst">
+              <el-input v-model="form.magnst" style="width: 80%" />
+            </el-form-item>
+            <el-form-item label="status">
+              <el-radio v-model="form.status" label="automatic">automatic</el-radio>
+              <el-radio v-model="form.status" label="reviewed">reviewed</el-radio>
+              <el-radio v-model="form.status" label="deleted">deleted</el-radio>
+            </el-form-item>
+            <el-form-item label="locationSource">
+              <el-input v-model="form.locationsource" style="width: 80%" />
+            </el-form-item>
+            <el-form-item label="magSource">
+              <el-input v-model="form.magsource" style="width: 80%" />
             </el-form-item>
           </el-form>
           <template #footer>
@@ -122,7 +242,14 @@ name: "Home",
     pageSize: '',
     search: '',
     total: 0,
-    tableData: []      //这里是表格数据
+    tableData: [],      //这里是表格数据
+    options: [{
+          value: 'earthquake',
+          label: 'earthquake'
+        }, {
+          value: 'quarry',
+          label: 'quarry'
+        }],
     }
   },
   created() {
@@ -143,9 +270,9 @@ name: "Home",
        */
       if(this.form.id){
         //修改
-        request.put("/user",this.form).then(res=>{
+        request.put("/home/update",this.form).then(res=>{
           console.log(res);
-          if(res.code == 0){            //// /* this.$message({message: '新增成功',type: 'success'});*/
+          if(res.code == 200){            //// /* this.$message({message: '新增成功',type: 'success'});*/
             this.$message({
               message: '更新成功',
               type: 'success'
@@ -162,7 +289,7 @@ name: "Home",
         })
       }else {
         //确定按钮--》增加数据
-        request.post("/user",this.form).then(res=>{
+        request.post("/home/create",this.form).then(res=>{
           console.log(res);
           if(res.code == 0){            //// /* this.$message({message: '新增成功',type: 'success'});*/
             this.$message({
@@ -184,7 +311,7 @@ name: "Home",
     searchData(){
       //搜索按钮--》
       //get请求,要加params
-      request.get("/user",{
+      request.get("/home/search",{
         params:{
           pageNum: this.currentPage,
           pageSize: this.pageSize,
@@ -203,7 +330,7 @@ name: "Home",
     },
     handleDatele(id){
       console.log(id)
-      request.delete("/user/"+id).then(res=>{
+      request.delete("/home/delete"+id).then(res=>{
         console.log(res);
         if(res.code == 0){            //// /* this.$message({message: '新增成功',type: 'success'});*/
           this.$message({
