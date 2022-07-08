@@ -2,24 +2,24 @@
     <el-card class="box-card">
         <template #header>
     <div  class="clearfix" >
-        <span>地震等级分布图</span>
-        <el-button style="float: right; padding: 3px 15px" type="text" @click="mag">点击查询</el-button>
+        <span>Map of earthquake grade distribution</span>
+        <el-button style="float: right; padding: 3px 15px" type="text" @click="mag">Click on the query</el-button>
     </div>
     </template>
     <div class="text item">
-        近一个月内的地震按等级进行分布的直方图
+        A histogram of the magnitude of earthquakes in the last month
     </div>
     </el-card>
     <el-card class="box-card">
         <template #header>
     <div  class="clearfix" >
-        <span>条件查询</span>
-        <el-button style="float: right; padding: 3px 15px" type="text" @click="dialogVisible1 = true">点击查询</el-button>
+        <span>scatter diagram</span>
+        <el-button style="float: right; padding: 3px 15px" type="text" @click="dialogVisible1 = true">Click on the query</el-button>
     </div>
     </template>
     <div>
       <el-dialog
-        title="分布直方图"
+        title="Distribution histogram"
         v-model="dialogVisible"
         width="80%"
         @open="openFun()">
@@ -27,40 +27,40 @@
     </div>
         <template #footer>     
           <span class="dialog-footer">
-            <el-button @click="dialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+            <el-button @click="dialogVisible = false">cancel</el-button>
+            <el-button type="primary" @click="dialogVisible = false">confirm</el-button>
           </span>
         </template>
   </el-dialog>
   </div>
     <div class="text item">
-        查询你想知道的地点的地震情况
+        Scatter plot of magnitude to depth
     </div>
     </el-card>
     <el-card class="box-card">
         <template #header>
     <div  class="clearfix" >
-        <span>其他</span>
-        <el-button style="float: right; padding: 3px 15px" type="text">操作按钮</el-button>
+        <span>others</span>
+        <el-button style="float: right; padding: 3px 15px" type="text">button</el-button>
     </div>
     </template>
     <div>
     <el-dialog
-      title="散点图"
+      title="scatter diagram"
       v-model="dialogVisible1"
       @open="openTwo()"
       width="80%">
         <div id ="two" ref="echarts" class="chartContain" style="width: 600px;height:400px;"></div>
       <template #footer>     
         <span class="dialog-footer">
-          <el-button @click="dialogVisible1 = false">取 消</el-button>
-          <el-button type="primary" @click="dialogVisible1 = false">确 定</el-button>
+          <el-button @click="dialogVisible1 = false">cancel</el-button>
+          <el-button type="primary" @click="dialogVisible1 = false">confirm</el-button>
         </span>
       </template>
 </el-dialog>
 </div>
     <div class="text item">
-        其他待添加的查询
+        undetermined
     </div>
     </el-card>
 </template>

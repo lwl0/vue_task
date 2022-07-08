@@ -2,14 +2,14 @@
     <div style="padding: 10px">
       <!--功能区-->
       <div style="margin: 10px">
-        <el-button type="primary"  @click="add">新增</el-button>   <!--新增按钮事件-->
+        <el-button type="primary"  @click="add">add</el-button>   <!--新增按钮事件-->
          <!--<el-button type="primary">导入</el-button>
          <el-button type="primary">导出</el-button>-->
       </div>
       <!--查询-->
       <div style="margin: 10px 0">
-            <el-input v-model="search" placeholder="请输入关键字" style="width: 20%" clearable></el-input>
-            <el-button type="primary" @click="searchData" style="margin-left: 5px">查询</el-button>
+            <el-input v-model="search" placeholder="Please enter a keyword" style="width: 20%" clearable></el-input>
+            <el-button type="primary" @click="searchData" style="margin-left: 5px">search</el-button>
       </div>
       <!--查询-->
       <el-table
@@ -111,10 +111,10 @@
 
         <el-table-column fixed="right" label="Operations">
           <template #default="scope"> <!-- //指定模板==>scope-->
-            <el-button  size="small" @click="handleClick(scope.row)">编辑</el-button>
-            <el-popconfirm title="确定删除吗？" @confirm="handleDatele(scope.row.id)">
+            <el-button  size="small" @click="handleClick(scope.row)">edit</el-button>
+            <el-popconfirm title="are you sure?" @confirm="handleDatele(scope.row.id)">
               <template #reference>
-                <el-button  size="small" style="background-color: brown; color: aliceblue">删除</el-button>
+                <el-button  size="small" style="background-color: brown; color: aliceblue">delete</el-button>
               </template>
             </el-popconfirm>
           </template>
@@ -153,7 +153,7 @@
               <el-input v-model="form.longitude" style="width: 80%" />
             </el-form-item>
             <el-form-item  label="type">
-                <el-select v-model="form.type" placeholder="请选择">
+                <el-select v-model="form.type" placeholder="choose">
                     <el-option
                       v-for="item in options"
                       :key="item.value"
@@ -215,8 +215,8 @@
           </el-form>
           <template #footer>
               <span class="dialog-footer">
-                  <el-button @click="dialogVisible = false">取消</el-button>
-                 <el-button type="primary" @click="save">确定</el-button>
+                  <el-button @click="dialogVisible = false">cancel</el-button>
+                 <el-button type="primary" @click="save">confirm</el-button>
               </span>
           </template>
         </el-dialog>

@@ -13,8 +13,8 @@
             </span>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item divided>个人信息</el-dropdown-item>
-                <el-dropdown-item divided>退出系统</el-dropdown-item>
+                <el-dropdown-item divided>Profile</el-dropdown-item>
+                <el-dropdown-item divided>logout</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>

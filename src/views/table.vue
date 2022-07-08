@@ -110,7 +110,7 @@
     </div>
     <div style="margin: 10px 0">   
         <span class="dialog-footer">
-          <el-button @click="goback">确认返回</el-button>
+          <el-button @click="goback">back</el-button>
         </span>     
     </div>
     

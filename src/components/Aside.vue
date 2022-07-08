@@ -24,19 +24,19 @@ export default {
           {
             path:'/',
             name:'Home',
-            label:'系统首页',
+            label:'assignment2',
             icon:'el-icon-s-home',
           },
           {
             path:'/search',
             name:'search',
-            label:'任务3',
+            label:'assignment3',
             icon:'el-icon-s-home',
           },
           {
             path:'/chart',
             name:'chart',
-            label:'任务4',
+            label:'assignment4',
             icon:'el-icon-s-home',
           },           
         ]
